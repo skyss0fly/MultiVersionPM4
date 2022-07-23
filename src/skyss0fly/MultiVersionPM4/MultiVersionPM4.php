@@ -6,9 +6,9 @@ namespace skyss0fly\MultiVersionPM4;
 
 use skyss0fly\MultiVersionPM4\session\SessionManager;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
-class MultiVersionPM4{
+class MultiVersionPM4 {
 
     public static function getProtocol(Player $player): int{
         return SessionManager::getProtocol($player) ?? ProtocolInfo::CURRENT_PROTOCOL;
