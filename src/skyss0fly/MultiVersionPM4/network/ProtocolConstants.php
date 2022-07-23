@@ -33,7 +33,7 @@ class ProtocolConstants{
         self::BEDROCK_1_17_30,
         self::BEDROCK_1_17_40,
         self::BEDROCK_1_18_0,
-		self::BEDROCK_1_19_20,
+        self::BEDROCK_1_19_20,
         ProtocolInfo::CURRENT_PROTOCOL
     ];
 }
