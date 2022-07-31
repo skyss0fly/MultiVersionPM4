@@ -14,7 +14,7 @@ use skyss0fly\MultiVersionPM4\utils\Utils;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
-use pocketmine\event\server\DataPacketSendEvent;
+use pocketmine\event\server\DataPacketSendEvent;s
 use pocketmine\network\mcpe\protocol\BatchPacket;
 use pocketmine\network\mcpe\protocol\CraftingDataPacket;
 use pocketmine\network\mcpe\protocol\LoginPacket;
