@@ -23,7 +23,7 @@ class ProtocolConstants{
         self::BEDROCK_1_17_30 => "1.17.30",
         self::BEDROCK_1_17_40 => "1.17.40",
         self::BEDROCK_1_18_0 => "1.18.0",
-	self::BEDROCK_1_19_20 => "1.19.20"
+	self::BEDROCK_1_19_20 => "1.19.20",
         ProtocolInfo::CURRENT_PROTOCOL => ProtocolInfo::MINECRAFT_VERSION_NETWORK 
     ];
 
