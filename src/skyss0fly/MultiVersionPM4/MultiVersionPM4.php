@@ -6,7 +6,7 @@ namespace skyss0fly\MultiVersionPM4;
 
 use skyss0fly\MultiVersionPM4\session\SessionManager;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class MultiVersionPM4{
 
