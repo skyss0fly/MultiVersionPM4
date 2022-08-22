@@ -6,10 +6,10 @@ namespace skyss0fly\MultiVersionPM4\utils;
 
 use ReflectionException;
 
-class Utils{
+class Utils {
 
     public static function forceGetProps($object, string $propName) {
-        try{
+        try {
             $reflection = new \ReflectionClass($object);
             $prop = $reflection->getProperty($propName);
             $prop->setAccessible(true);
@@ -20,7 +20,7 @@ class Utils{
     }
 
     public static function forceSetProps($object, string $propName, $value) {
-        try{
+        try {
             $reflection = new \ReflectionClass($object);
             $prop = $reflection->getProperty($propName);
             $prop->setAccessible(true);
@@ -30,7 +30,7 @@ class Utils{
     }
 
     public static function forceCallMethod($object, string $methodName, ...$args) {
-        try{
+        try {
             $reflection = new \ReflectionClass($object);
             $method = $reflection->getMethod($methodName);
             $method->setAccessible(true);

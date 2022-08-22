@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace skyss0fly\MultiVersionPM4\session;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 
-class Session{
+class Session {
 
     /** @var int */
     public $protocol;

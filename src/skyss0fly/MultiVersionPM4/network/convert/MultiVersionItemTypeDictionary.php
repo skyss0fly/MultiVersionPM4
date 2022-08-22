@@ -19,7 +19,7 @@ use function is_int;
 use function is_string;
 use function json_decode;
 
-class MultiVersionItemTypeDictionary{
+class MultiVersionItemTypeDictionary {
     use SingletonTrait;
 
     /**

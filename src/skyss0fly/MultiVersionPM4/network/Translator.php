@@ -52,11 +52,11 @@ use pocketmine\network\mcpe\protocol\ResourcePackStackPacket;
 use pocketmine\network\mcpe\protocol\SetTitlePacket;
 use pocketmine\network\mcpe\protocol\StartGamePacket;
 use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
-class Translator{
+class Translator {
 
-    public static function fromClient(DataPacket $packet, int $protocol, Player $player = null) : DataPacket{
+    public static function fromClient(DataPacket $packet, int $protocol, Player $player = null) : DataPacket {
         $pid = $packet::NETWORK_ID;
         switch($pid) {
             case LoginPacket::NETWORK_ID:
