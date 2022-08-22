@@ -1,5 +1,5 @@
 name: MultiVersionPM4
-api: 4.6.0
+api: 4.7.0
 main: skyss0fly\MultiVersionPM4\Loader
 version: 0.486.1
 description: A plugin to allows older Minecraft client versions to connect to newer server versions.
