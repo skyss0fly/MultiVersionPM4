@@ -2,21 +2,16 @@
 
 declare(strict_types=1);
 
-namespace skyss0fly\MultiVersion;
+namespace skyss0fly\MultiVersionPM4;
 
-use skyss0fly\MultiVersionPM4\compressor\MultiVersionZlibCompressor;
-use skyss0fly\MultiVersionPM4\network\MultiVersionSessionAdapter;
-use skyss0fly\MultiVersionPM4\network\ProtocolConstants;
-use skyss0fly\MultiVersionPM4\network\Translator;
-use skyss0fly\MultiVersionPM4\session\SessionManager;
-use skyss0fly\MultiVersionPM4\task\CompressTask;
-use skyss0fly\MultiVersionPM4\task\DecompressTask;
-use skyss0fly\MultiVersionPM4\utils\Utils;
 use pocketmine\crafting\CraftingManager;
+use pocketmine\Server;
+
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\event\server\DataPacketSendEvent;
+
 use pocketmine\network\mcpe\compression\ZlibCompressor;
 use pocketmine\network\mcpe\convert\GlobalItemTypeDictionary;
 use pocketmine\network\mcpe\protocol\CraftingDataPacket;
@@ -32,12 +27,20 @@ use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializerContext;
 use pocketmine\network\NetworkSessionManager;
 use pocketmine\network\NetworkBinaryStream;
-use pocketmine\Server;
+
+use skyss0fly\MultiVersionPM4\compressor\MultiVersionZlibCompressor;
+use skyss0fly\MultiVersionPM4\network\MultiVersionSessionAdapter;
+use skyss0fly\MultiVersionPM4\network\ProtocolConstants;
+use skyss0fly\MultiVersionPM4\network\Translator;
+use skyss0fly\MultiVersionPM4\session\SessionManager;
+use skyss0fly\MultiVersionPM4\task\CompressTask;
+use skyss0fly\MultiVersionPM4\task\DecompressTask;
+use skyss0fly\MultiVersionPM4\utils\Utils;
+
 use function in_array;
 use function strlen;
 
-class EventListener implements Listener
-{
+class EventListener implements Listener {
 
 	/** @var bool */
 	public $cancel_send = false; // prevent recursive call
@@ -45,8 +48,7 @@ class EventListener implements Listener
 	/**
 	 * @priority LOWEST
 	 */
-	public function onDataPacketReceive(DataPacketReceiveEvent $event)
-	{
+	public function onDataPacketReceive(DataPacketReceiveEvent $event) {
 		$origin = $event->getOrigin();
 		$packet = $event->getPacket();
 		if ($packet instanceof PacketViolationWarningPacket) {
