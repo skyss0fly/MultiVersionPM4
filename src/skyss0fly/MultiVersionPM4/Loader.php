@@ -13,13 +13,13 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\ClosureTask;
 use function in_array;
 
-class Loader extends PluginBase{
+class Loader extends PluginBase {
 
     /** @var string */
     public static $resourcesPath;
 
     /** @var self */
-    private static $instance;
+    private static Loader $instance;
 
     /** @var MultiVersionCraftingManager */
     public $craftingManager;
@@ -27,11 +27,11 @@ class Loader extends PluginBase{
     /** @var bool */
     public $canJoin = false;
 
-    public static function getInstance() : self{
+    public static function getInstance() : Loader {
         return self::$instance;
     }
 
-    public function onEnable(): void{
+    public function onEnable() : void {
         self::$instance = $this;
 
         foreach($this->getResources() as $k => $v) {

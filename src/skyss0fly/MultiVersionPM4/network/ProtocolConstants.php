@@ -6,7 +6,7 @@ namespace skyss0fly\MultiVersionPM4\network;
 
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 
-class ProtocolConstants{
+class ProtocolConstants {
 
     public const BEDROCK_1_16_220 = 431;
     public const BEDROCK_1_17_0 = 440;
@@ -23,7 +23,7 @@ class ProtocolConstants{
         self::BEDROCK_1_17_30 => "1.17.30",
         self::BEDROCK_1_17_40 => "1.17.40",
         self::BEDROCK_1_18_0 => "1.18.0",
-	self::BEDROCK_1_19_20 => "1.19.20",
+	    self::BEDROCK_1_19_20 => "1.19.20",
         ProtocolInfo::CURRENT_PROTOCOL => ProtocolInfo::MINECRAFT_VERSION_NETWORK 
     ];
 

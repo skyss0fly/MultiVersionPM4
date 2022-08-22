@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace skyss0fly\MultiVersionPM4\network\convert;
 
-use skyss0fly\MultiVersionPM4\Loader;
 use pocketmine\network\mcpe\convert\ItemTranslator;
+
 use pocketmine\utils\AssumptionFailedError;
 use pocketmine\utils\SingletonTrait;
+
+use skyss0fly\MultiVersionPM4\Loader;
+
 use function array_key_exists;
 use function file_get_contents;
 use function is_array;
@@ -15,7 +18,7 @@ use function is_numeric;
 use function is_string;
 use function json_decode;
 
-class MultiVersionItemTranslator{
+class MultiVersionItemTranslator {
     use SingletonTrait;
 
     /**
@@ -36,7 +39,7 @@ class MultiVersionItemTranslator{
      */
     private $complexNetToCoreMapping = [];
 
-    private static function make() : self{
+    private static function make() : self {
         $data = file_get_contents(\pocketmine\RESOURCE_PATH . '/vanilla/r16_to_current_item_map.json');
         if($data === false) throw new AssumptionFailedError("Missing required resource file");
         $json = json_decode($data, true);

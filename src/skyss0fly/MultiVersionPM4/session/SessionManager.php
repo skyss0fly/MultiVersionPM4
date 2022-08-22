@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace skyss0fly\MultiVersionPM4\session;
 
-use pocketmine\Player;
+use pocketmine\player\Player;
 
-class SessionManager{
+class SessionManager {
 
     /** @var Session[] */
     private static $sessions = [];
 
-    public static function get(Player $player) : ?Session{
+    public static function get(Player $player) : ?Session {
         return self::$sessions[$player->getLoaderId()] ?? null;
     }
 
@@ -23,7 +23,7 @@ class SessionManager{
         self::$sessions[$player->getLoaderId()] = new Session($player, $protocol);
     }
 
-    public static function getProtocol(Player $player): ?int{
+    public static function getProtocol(Player $player): ?int {
         if(($session = self::get($player)) !== null) {
             return $session->protocol;
         }

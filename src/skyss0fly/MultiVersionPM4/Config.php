@@ -6,7 +6,7 @@ namespace skyss0fly\MultiVersionPM4;
 
 use function yaml_parse_file;
 
-class Config{
+class Config {
 
     public static $ASYNC_BATCH_COMPRESSION;
     public static $ASYNC_BATCH_DECOMPRESSION;

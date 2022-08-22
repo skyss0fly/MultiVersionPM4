@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace skyss0fly\MultiVersion\network\translator;
+namespace skyss0fly\MultiVersionPM4\network\translator;
 
 use skyss0fly\MultiVersionPM4\network\convert\MultiVersionRuntimeBlockMapping;
 use skyss0fly\MultiVersionPM4\network\Serializer;

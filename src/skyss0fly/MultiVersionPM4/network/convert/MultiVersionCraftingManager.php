@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace skyss0fly\MultiVersionPM4\network\convert;
 
+use pocketmine\Server;
+
+use pocketmine\inventory\CraftingManager;
+
+use pocketmine\network\mcpe\protocol\BatchPacket;
+use pocketmine\network\mcpe\protocol\CraftingDataPacket;
+
+use pocketmine\timings\Timings;
+
 use skyss0fly\MultiVersionPM4\Loader;
 use skyss0fly\MultiVersionPM4\network\ProtocolConstants;
 use skyss0fly\MultiVersionPM4\network\Translator;
-use pocketmine\inventory\CraftingManager;
-use pocketmine\network\mcpe\protocol\BatchPacket;
-use pocketmine\network\mcpe\protocol\CraftingDataPacket;
-use pocketmine\Server;
-use pocketmine\timings\Timings;
 
-class MultiVersionCraftingManager extends CraftingManager{
+class MultiVersionCraftingManager extends CraftingManager {
 
     /** @var BatchPacket[] */
     protected $multiVersionCraftingDataCache = [];
@@ -28,7 +32,7 @@ class MultiVersionCraftingManager extends CraftingManager{
         ProtocolConstants::BEDROCK_1_16_220
     ];
 
-    public function buildCraftingDataCache(): void{
+    public function buildCraftingDataCache() : void {
         Timings::$craftingDataCacheRebuildTimer->startTiming();
         $c = Server::getInstance()->getCraftingManager();
         foreach(self::PROTOCOL as $protocol){
@@ -38,18 +42,18 @@ class MultiVersionCraftingManager extends CraftingManager{
             $pk = new CraftingDataPacket();
             $pk->cleanRecipes = true;
 
-            foreach($c->shapelessRecipes as $list){
+            foreach($c->shapelessRecipes as $list) {
                 foreach($list as $recipe){
                     $pk->addShapelessRecipe($recipe);
                 }
             }
-            foreach($c->shapedRecipes as $list){
+            foreach($c->shapedRecipes as $list) {
                 foreach($list as $recipe){
                     $pk->addShapedRecipe($recipe);
                 }
             }
 
-            foreach($c->furnaceRecipes as $recipe){
+            foreach($c->furnaceRecipes as $recipe) {
                 $pk->addFurnaceRecipe($recipe);
             }
 
@@ -65,7 +69,7 @@ class MultiVersionCraftingManager extends CraftingManager{
         Timings::$craftingDataCacheRebuildTimer->stopTiming();
     }
 
-    public function getCraftingDataPacketA(int $protocol): BatchPacket{
+    public function getCraftingDataPacketA(int $protocol) : BatchPacket{
         return $this->multiVersionCraftingDataCache[$protocol];
     }
 }
